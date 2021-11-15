@@ -1,0 +1,47 @@
+<div class="container pb-3">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <form  (ngSubmit)="onSortTable(selected.value)" >
+      <h2 class='text-center mb-3'>Welcome Hung's Page</h2>
+      <select class="form-control mb-2 "  [formControl]="selected" >
+        <option value="default" >--Select field to sort--</option>
+        <option *ngFor="let c of cols" [value]="c">{{c}}</option>
+      </select>
+      <button class="btn btn-primary" type="submit">Sort</button>
+    </form>
+    </div>
+    
+  </div>
+</div>
+<div class="container-fuild">
+<div class="table-responsive-sm">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope='col' >Id</th>
+          <th scope='col'>Firstname</th>
+          <th scope='col'>Lastname</th>
+          <th scope='col'>Email</th>
+          <th scope='col'>Gender</th>
+          <th scope='col'>Birthday</th>
+          <th scope='col'>Salary</th>
+          <th scope='col'>Phone</th>          
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <th scope='row' >{{product.id}}</th>
+          <td>{{product.firstName}}</td>
+          <td>{{product.lastName}}</td>
+          <td>{{product.email}}</td>
+          <td>{{product.gender}}</td>
+          <td>{{product.birthday | datePipe}} </td>
+          <td>{{product.salary}}</td>
+          <td>{{product.phone}}</td>
+         
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
